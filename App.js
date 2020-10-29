@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Platform, SafeAreaView, TextInput, StatusBar, } from 'react-native';
+import { StyleSheet, Text, View, Platform, SafeAreaView, TextInput, StatusBar, TouchableOpacity } from 'react-native';
 
 
 export default function App() {
 
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState('');
+  const [height, setHeight] = useState('');
 
-  let result = weight.replace(',','.') / (height * height);
+  let result = weight.replace(',','.') / (height.replace(',','.') * height.replace(',','.'));
   let degree = 'pendente';
 
   if (result < 18.5) {
@@ -48,9 +48,10 @@ export default function App() {
             onChangeText={(newValue) => setWeight(newValue)}
           />
         </View>
-        <Text style={styles.title}>Resultado: {result.toFixed(2)}</Text>
-        <Text style={styles.title}>Grau: {degree}</Text>
+        <Text style={styles.results}>Resultado: {result.toFixed(2)}</Text>
+        <Text style={styles.results}>Grau: {degree}</Text>
       </View>
+
     </SafeAreaView>
   );
 }
@@ -62,10 +63,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    backgroundColor: '#1C304A',
   },
   calculator: {
     width: '100%',
-    backgroundColor: '#1C304A',
     alignItems: 'center',
     paddingBottom: 10,
   },
@@ -87,7 +88,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: 'white',
   },
+  results: {
+    fontSize: 30,
+    textAlign: "center",
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowRadius: 10,
+  },
   title: {
+    marginTop: 10,
     fontSize: 40,
     textAlign: "center",
     color: 'white',
