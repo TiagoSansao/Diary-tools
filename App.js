@@ -32,14 +32,18 @@ export default function App() {
     degree = 'obesidade grave';
   }
 
-  const onShare = async () => {
+  const handleShare = async () => {
     try {
       await Share.share({
-        message: `O meu índice de massa corporal é ${result} e é classificado como ${degree}, você sabe qual é o seu? Caso não, instale agora este aplicativo:`
+        message: `O meu índice de massa corporal é ${result.toFixed(2)} e é classificado como ${degree}, você sabe qual é o seu? Caso não, instale agora este aplicativo:`
       });
     } catch (err) {
       alert(err)
     }
+  }
+
+  const handleInformation = () => {
+    alert('   IMC é a sigla para Índice de Massa Corporal, que é um cálculo que serve para avaliar se a pessoa está dentro do seu peso ideal em relação à altura. \n   Estar dentro do peso certo é importante porque estar acima ou abaixo desse peso pode influenciar bastante a saúde, aumentando o risco de doenças como desnutrição quando se está abaixo do peso, e AVC ou infarto, quando se está acima do peso.')
   }
 
   return (
@@ -52,7 +56,7 @@ export default function App() {
             placeholderTextColor="#cccac4" 
             keyboardType="numeric" 
             style={styles.input} 
-            placeholder="Height (meters)"
+            placeholder="Altura (metros)"
             value={height}
             onChangeText={(newValue) => setHeight(newValue)}
           />
@@ -63,7 +67,7 @@ export default function App() {
             placeholderTextColor="#cccac4" 
             keyboardType="numeric" 
             style={styles.input} 
-            placeholder="Weight (kilograms)"
+            placeholder="Peso (quilogramas)"
             value={weight}
             onChangeText={(newValue) => setWeight(newValue)}
           />
@@ -73,9 +77,14 @@ export default function App() {
           <Text style={styles.results}>Resultado: {result.toFixed(2)}</Text>
           <Text style={styles.results}>Grau: {degree}</Text>
         </View>
-      <TouchableOpacity style={styles.shareButton} onPress={onShare}>
+      <TouchableOpacity style={styles.shareButton} onPress={handleShare}>
         <Text style={styles.shareText}>
           Compartilhar resultado
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.informationButton} onPress={handleInformation}>
+        <Text style={styles.informationText}>
+          Informações sobre o IMC
         </Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -95,6 +104,22 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     paddingBottom: 10,
+  },
+  informationButton: {
+    width: '65%',
+    height: 50,
+    backgroundColor: '#e67e22',
+    justifyContent: 'center',
+    borderColor: '#e74c3c',
+    borderWidth: 3,
+    marginBottom: 15,
+  },
+  informationText: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowRadius: 5,
   },
   inputContainer: {
     width: '65%',
@@ -129,6 +154,7 @@ const styles = StyleSheet.create({
     borderColor: '#2ecc71',
     borderWidth: 3,
     marginTop: 15,
+    marginBottom: 20,
   },
   shareText: {
     textAlign: 'center',
