@@ -10,7 +10,7 @@ import {
   StatusBar, 
   TouchableOpacity
  } from 'react-native';
-
+import { AdMobBanner, setTestDeviceIDAsync } from 'expo-ads-admob';
 
 export default function App() {
 
@@ -87,11 +87,20 @@ export default function App() {
           Informações sobre o IMC
         </Text>
       </TouchableOpacity>
+      <AdMobBanner 
+        style={styles.advertisement}
+        bannerSize="largeBanner"
+        adUnitID="ca-app-pub-3940256099942544/2934735716"
+      >
+      </AdMobBanner>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  advertisement: {
+    marginTop: 20,
+  },
   container: {
     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     flex: 1,
