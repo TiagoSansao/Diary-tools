@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Platform, SafeAreaView, TextInput, StatusBar, TouchableOpacity } from 'react-native';
+import { 
+  Share, 
+  StyleSheet, 
+  Text, 
+  View, 
+  Platform, 
+  SafeAreaView, 
+  TextInput, 
+  StatusBar, 
+  TouchableOpacity
+ } from 'react-native';
 
 
 export default function App() {
@@ -22,10 +32,20 @@ export default function App() {
     degree = 'obesidade grave';
   }
 
+  const onShare = async () => {
+    try {
+      await Share.share({
+        message: `O meu índice de massa corporal é ${result} e é classificado como ${degree}, você sabe qual é o seu? Caso não, instale agora este aplicativo:`
+      });
+    } catch (err) {
+      alert(err)
+    }
+  }
+
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Calculadora de IMC</Text>
       <View style={styles.calculator}>
-        <Text style={styles.title}>Calculadora de IMC</Text>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Altura (ex: 1,75)</Text>
           <TextInput 
@@ -48,10 +68,16 @@ export default function App() {
             onChangeText={(newValue) => setWeight(newValue)}
           />
         </View>
-        <Text style={styles.results}>Resultado: {result.toFixed(2)}</Text>
-        <Text style={styles.results}>Grau: {degree}</Text>
       </View>
-
+      <View>
+          <Text style={styles.results}>Resultado: {result.toFixed(2)}</Text>
+          <Text style={styles.results}>Grau: {degree}</Text>
+        </View>
+      <TouchableOpacity style={styles.shareButton} onPress={onShare}>
+        <Text style={styles.shareText}>
+          Compartilhar resultado
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -95,6 +121,22 @@ const styles = StyleSheet.create({
     textShadowColor: 'black',
     textShadowRadius: 10,
   },
+  shareButton: {
+    width: '65%',
+    height: 50,
+    backgroundColor: '#16a085',
+    justifyContent: 'center',
+    borderColor: '#2ecc71',
+    borderWidth: 3,
+    marginTop: 15,
+  },
+  shareText: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowRadius: 5,
+  },
   title: {
     marginTop: 10,
     fontSize: 40,
@@ -102,5 +144,7 @@ const styles = StyleSheet.create({
     color: 'white',
     textShadowColor: 'black',
     textShadowRadius: 10,
+    borderBottomColor: '#00CFFF',
+    borderBottomWidth: 1,
   },
 });
