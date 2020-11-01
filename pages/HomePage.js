@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import WeatherForecast from '../components/WeatherForecast';
+
 function HomePage() {
 
   const navigation = useNavigation();
@@ -12,6 +14,8 @@ function HomePage() {
     <SafeAreaView style={styles.container}>
 
       <Text style={styles.title}>Ferramentas Diárias</Text>
+
+      <WeatherForecast />
 
       <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('BMI Calculator') }}>
         <MaterialCommunityIcons name="weight-kilogram" size={35} color="black" />
