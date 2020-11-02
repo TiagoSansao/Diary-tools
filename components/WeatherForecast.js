@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, Image } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 
 import { WEATHER_API } from '@env';
@@ -38,14 +38,33 @@ const WeatherForecast = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.insideContainerLeft}>
-        <Text style={styles.localText}>{weatherData.name}, {weatherData.sys.country}</Text>
-        <Text style={styles.temperature}>{weatherData.main["temp"]}ºC</Text>
+      <View style={styles.sidesContainer}>
+        <View style={styles.insideContainerLeft}>
+          <Text style={styles.localText}>{weatherData.name}, {weatherData.sys.country}</Text>
+          <Text style={styles.temperature}>{weatherData.main["temp"]}ºC</Text>
+        </View>
+        <View style={styles.insideContainerRight}>
+          <Image source={{uri: `http://openweathermap.org/img/wn/${weatherData.weather[0]["icon"]}@2x.png`}} style={styles.weatherImg}/>
+          <Text style={styles.skySituation}>{weatherData.weather[0]["description"]}</Text>
+        </View>
       </View>
-      <View style={styles.insideContainerRight}>
-        <Image source={{uri: `http://openweathermap.org/img/wn/${weatherData.weather[0]["icon"]}@2x.png`}} style={styles.weatherImg}/>
-        <Text style={styles.skySituation}>{weatherData.weather[0]["description"]}</Text>
+      <View style={styles.bottomContainer}>
+        <View style={styles.infoContainer}>
+          <Text style={styles.labelText}>Umidade do ar</Text>
+          <View style={styles.infoDownContainer}>
+            <MaterialCommunityIcons name="water-percent" size={50} color="#446c9c" />
+            <Text style={styles.infoText}>{weatherData.main["humidity"]}%</Text>
+          </View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.labelText}>Nuvens no céu</Text>
+          <View style={styles.infoDownContainer}>
+            <MaterialCommunityIcons name="weather-cloudy" size={50} color="#446c9c" />
+            <Text style={styles.infoText}>  {weatherData.clouds["all"]}%</Text>
+          </View>
+        </View>
       </View>
+      <Text style={styles.referenceText}>Informações fornecidas por api.openweathermap.org</Text>
     </View>
   );
 }
@@ -53,13 +72,17 @@ const WeatherForecast = () => {
 export default WeatherForecast;
 
 const styles = StyleSheet.create({
+  bottomContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 10,
+  },
   container: {
     borderColor: '#cce2eb',
     borderWidth: 2,
     width: 300,
     marginTop: 20,
     backgroundColor: '#4093c5',
-    flexDirection: "row",
   },
   insideContainerLeft: {
     justifyContent: 'center',
@@ -72,11 +95,35 @@ const styles = StyleSheet.create({
     width: '40%',
     padding: 5,
   },
+  infoContainer: { 
+    alignItems: 'center',
+  },
+  infoDownContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  infoText: {
+    fontSize: 20,
+    color: '#424548',
+  },
+  labelText: {
+    color: 'white',
+    fontSize: 10,
+  },
   localText: {
     color: 'white',
     fontSize: 25,
     textAlign: 'center',
     margin: 3,
+  },
+  referenceText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 10,
+    marginBottom: 5,
+  },
+  sidesContainer: {
+    flexDirection: "row",
   },
   skySituation: {
     marginTop: -20,
@@ -94,6 +141,7 @@ const styles = StyleSheet.create({
   weatherImg: {
     width: 100,
     height: 100,
+    marginTop: -25,
   },
 
   // Warn
