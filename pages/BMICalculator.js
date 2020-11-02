@@ -9,6 +9,7 @@ import {
   TouchableOpacity
  } from 'react-native';
 import { AdMobBanner } from 'expo-ads-admob';
+import { AD_BANNER_01, AD_BANNER_01_TESTE } from '@env';
 
 export default function BMICalculator() {
 
@@ -87,7 +88,7 @@ export default function BMICalculator() {
       <AdMobBanner 
         style={styles.advertisement}
         bannerSize="largeBanner"
-        adUnitID="ca-app-pub-3940256099942544/2934735716"
+        adUnitID={AD_BANNER_01_TESTE} 
       >
       </AdMobBanner>
     </SafeAreaView>

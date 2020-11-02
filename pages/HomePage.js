@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text, SafeAreaView, Platform, StatusBar, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import { AdMobBanner } from 'expo-ads-admob';
+import { AD_BANNER_01_TESTE } from '@env';
 
 import WeatherForecast from '../components/WeatherForecast';
 
@@ -22,6 +24,18 @@ function HomePage() {
         <Text style={styles.buttonText}> Calcular IMC</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Jokenpo') }}>
+        <FontAwesome5 name="hand-scissors" size={35} color="black" />
+        <Text style={styles.buttonText}> Jokenpô</Text>
+      </TouchableOpacity>
+
+      <AdMobBanner 
+        style={styles.advertisement}
+        bannerSize="largeBanner"
+        adUnitID={AD_BANNER_01_TESTE} 
+      >
+      </AdMobBanner>
+
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           Desenvolvido por{"\n"}Tiago Schulz Sansão &copy; 2020-{new Date().getFullYear()}
@@ -35,6 +49,9 @@ function HomePage() {
 export default HomePage;
 
 const styles = StyleSheet.create({
+  advertisement: {
+    marginTop: 'auto',
+  },
   container: {
     backgroundColor: '#1C304A',
     flex: 1,
@@ -45,19 +62,11 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     flexDirection: 'row',
-    minWidth: "60%",
+    minWidth: 300,
     backgroundColor: "orange",
     justifyContent: "center",
     alignItems: 'center',
     height: 60,
-  },
-  title: {
-    color: '#27ae60',
-    fontSize: 37,
-    borderBottomColor: '#3498db',
-    borderBottomWidth: 1,
-    textShadowColor: 'black',
-    textShadowRadius: 5,
   },
   buttonText: {
     textAlign: 'center',
@@ -79,5 +88,13 @@ const styles = StyleSheet.create({
     textShadowColor: 'black',
     textShadowRadius: 1,
     textAlign: 'center',
-  }
+  },
+  title: {
+    color: '#27ae60',
+    fontSize: 37,
+    borderBottomColor: '#3498db',
+    borderBottomWidth: 1,
+    textShadowColor: 'black',
+    textShadowRadius: 5,
+  },
 })
