@@ -6,10 +6,10 @@
   </p>
   <p align="center"> 
     <a href="#about">About</a> •
-    <a href="#preview">Preview</a> •
     <a href="#status">Project status</a> •
-    <a href="#tecnologias">Technologies</a> •
-    <a href="#instalacao">Getting started</a> 
+    <a href="#preview">Preview</a> •
+    <a href="#instalacao">Getting started</a> •
+    <a href="#tecnologias">Technologies</a> 
   </p>
   <hr/>
 </header>
@@ -39,7 +39,8 @@
 
   <div align="center"  id="preview">
     <h3 align="center">Preview</h3>
-    <img src="./assets/DiaryToolsPreview.gif">
+    <img src="./assets/DiaryToolsPreview.gif" alt="GIF showing the app">
+    <img src="./assets/preview1.jpeg" alt="IMG showing the home page">
   </div>
 
   <hr/>
