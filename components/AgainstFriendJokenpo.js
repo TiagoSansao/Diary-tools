@@ -80,7 +80,7 @@ const AgainstComputerJokenpo = () => {
           <Text style={styles.gameText}>{gameStatus}</Text>
           <View style={styles.playerOptions}>
             <Text style={styles.computerScore}>
-              Player2 score: {playerScore2}
+              Player2 score: {playerScore1}
             </Text>
             <TouchableOpacity
               style={styles.playerOption}
@@ -112,7 +112,7 @@ const AgainstComputerJokenpo = () => {
           <Text style={styles.gameText}>{gameStatus}</Text>
           <View style={styles.playerOptions}>
             <Text style={styles.playerScore}>
-              Player1 score: {playerScore1}
+              Player1 score: {playerScore2}
             </Text>
             <TouchableOpacity
               style={styles.playerOption}

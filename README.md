@@ -1,5 +1,5 @@
 <header>
-  <div align="center" ><img src="./assets/diary-tools-icon.png" alt="logo" /></div>
+  <div align="center" ><img src="./assets/diary-tools-icon.png" alt="logo" width="200" height="auto"/></div>
   <h1 align="center"> Diary Tools </h1>
   <p align="center"> 
     <strong> A React Native application with some tools that you may use in your day. </strong> 
@@ -18,9 +18,11 @@
   <div id="about">
     <h3 align="center">💁 About</h3>
     <p>This application currently has three features:<p>
-    - Weather forecast (it is shown in degrees Celsius)
-    - BMI Calculator (the units of measurement used are meter and kilogram)
-    - Jokenpo game (you can play alone or against a friend)
+    <ul>
+      <li>Weather forecast (it is shown in degrees Celsius</li>
+      <li>BMI Calculator (the units of measurement used are meter and kilogram)</li>
+      <li>Jokenpo game (you can play alone or against a friend)</li>
+    <ul>
     <p>You can download it on Google Play Store <a href="https://play.google.com/store/apps/details?id=com.tiagosansao.lifetools">clicking here!</a></p>
   </div>
 
@@ -35,9 +37,9 @@
 
   <hr/>
 
-  <div id="preview">
+  <div align="center"  id="preview">
     <h3 align="center">Preview</h3>
-    <img align="center" src="./assets/DiaryToolsPreview.gif">
+    <img src="./assets/DiaryToolsPreview.gif">
   </div>
 
   <hr/>
