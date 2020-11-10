@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { AdMobBanner } from 'expo-ads-admob';
-import { AD_BANNER_01_TESTE } from '@env';
+import {
+  AD_BANNER_01_TESTE,
+  CHOOSE_MODE_BIG_BANNER,
+  CHOOSE_MODE_SMALL_BANNER,
+} from '@env';
 import AgainstComputerJokenpo from '../components/AgainstComputerJokenpo';
 import AgainstFriendJokenpo from '../components/AgainstFriendJokenpo';
 
 const Jokenpo = () => {
-
-  const [gameMode, setGameMode] = useState(null)
+  const [gameMode, setGameMode] = useState(null);
 
   if (gameMode === null) {
     return (
@@ -21,34 +24,30 @@ const Jokenpo = () => {
             <Text style={styles.chooseTextButton}>Jogar contra um amigo</Text>
           </TouchableOpacity>
         </View>
-          <View style={styles.advertisementContainer}>
-            <AdMobBanner 
+        <View style={styles.advertisementContainer}>
+          <AdMobBanner
             style={styles.advertisement}
-            bannerSize="mediumRectangle"
-            adUnitID={AD_BANNER_01_TESTE} 
+            bannerSize='mediumRectangle'
+            adUnitID={AD_BANNER_01_TESTE}
           ></AdMobBanner>
-            <AdMobBanner 
+          <AdMobBanner
             style={styles.advertisement}
-            bannerSize="largeBanner"
-            adUnitID={AD_BANNER_01_TESTE} 
+            bannerSize='largeBanner'
+            adUnitID={AD_BANNER_01_TESTE}
           ></AdMobBanner>
         </View>
       </View>
-    )
-  }
-
-  if (gameMode === 'againstComputer') {
-    return (
-      <AgainstComputerJokenpo />
     );
   }
 
-  if (gameMode === 'againstFriend') {
-    return (
-      <AgainstFriendJokenpo />
-    )
+  if (gameMode === 'againstComputer') {
+    return <AgainstComputerJokenpo />;
   }
-}
+
+  if (gameMode === 'againstFriend') {
+    return <AgainstFriendJokenpo />;
+  }
+};
 
 export default Jokenpo;
 
@@ -90,6 +89,4 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: '#1C304A',
   },
-})
-
-
+});

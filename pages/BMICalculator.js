@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { 
-  Share, 
-  StyleSheet, 
-  Text, 
-  View, 
-  SafeAreaView, 
-  TextInput, 
-  TouchableOpacity
- } from 'react-native';
+import {
+  Share,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import { AdMobBanner } from 'expo-ads-admob';
-import { AD_BANNER_01, AD_BANNER_01_TESTE } from '@env';
+import { IMC_BANNER, AD_BANNER_01_TESTE } from '@env';
 
 export default function BMICalculator() {
-
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
 
-  let result = weight.replace(',','.') / (height.replace(',','.') * height.replace(',','.'));
+  let result =
+    weight.replace(',', '.') /
+    (height.replace(',', '.') * height.replace(',', '.'));
   let degree = 'pendente';
 
   if (result < 18.5) {
@@ -27,70 +28,72 @@ export default function BMICalculator() {
     degree = 'sobrepeso';
   } else if (result >= 30 && result < 39.9) {
     degree = 'obesidade';
-  } else if (result >= 39.9){
+  } else if (result >= 39.9) {
     degree = 'obesidade grave';
   }
 
   const handleShare = async () => {
     try {
       await Share.share({
-        message: `O meu índice de massa corporal é ${result.toFixed(2)} e é classificado como ${degree}, você sabe qual é o seu? Caso não, instale agora este aplicativo:`
+        message: `O meu índice de massa corporal é ${result.toFixed(
+          2
+        )} e é classificado como ${degree}, você sabe qual é o seu? Caso não, instale agora este aplicativo:`,
       });
     } catch (err) {
-      alert(err)
+      alert(err);
     }
-  }
+  };
 
   const handleInformation = () => {
-    alert('   IMC é a sigla para Índice de Massa Corporal, que é um cálculo que serve para avaliar se a pessoa está dentro do seu peso ideal em relação à altura. \n   Estar dentro do peso certo é importante porque estar acima ou abaixo desse peso pode influenciar bastante a saúde, aumentando o risco de doenças como desnutrição quando se está abaixo do peso, e AVC ou infarto, quando se está acima do peso.')
-  }
+    alert(
+      '   IMC é a sigla para Índice de Massa Corporal, que é um cálculo que serve para avaliar se a pessoa está dentro do seu peso ideal em relação à altura. \n   Estar dentro do peso certo é importante porque estar acima ou abaixo desse peso pode influenciar bastante a saúde, aumentando o risco de doenças como desnutrição quando se está abaixo do peso, e AVC ou infarto, quando se está acima do peso.'
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.calculator}>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Altura (ex: 1,75)</Text>
-          <TextInput 
-            placeholderTextColor="#cccac4" 
-            keyboardType="numeric" 
-            style={styles.input} 
-            placeholder="Altura (metros)"
+          <TextInput
+            placeholderTextColor='#cccac4'
+            keyboardType='numeric'
+            style={styles.input}
+            placeholder='Altura (metros)'
             value={height}
             onChangeText={(newValue) => setHeight(newValue)}
           />
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Peso (ex: 65,50)</Text>
-          <TextInput 
-            placeholderTextColor="#cccac4" 
-            keyboardType="numeric" 
-            style={styles.input} 
-            placeholder="Peso (quilogramas)"
+          <TextInput
+            placeholderTextColor='#cccac4'
+            keyboardType='numeric'
+            style={styles.input}
+            placeholder='Peso (quilogramas)'
             value={weight}
             onChangeText={(newValue) => setWeight(newValue)}
           />
         </View>
       </View>
       <View>
-          <Text style={styles.results}>Resultado: {result.toFixed(2)}</Text>
-          <Text style={styles.results}>Grau: {degree}</Text>
-        </View>
+        <Text style={styles.results}>Resultado: {result.toFixed(2)}</Text>
+        <Text style={styles.results}>Grau: {degree}</Text>
+      </View>
       <TouchableOpacity style={styles.shareButton} onPress={handleShare}>
-        <Text style={styles.shareText}>
-          Compartilhar resultado
-        </Text>
+        <Text style={styles.shareText}>Compartilhar resultado</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.informationButton} onPress={handleInformation}>
-        <Text style={styles.informationText}>
-          Informações sobre o IMC
-        </Text>
-      </TouchableOpacity>
-      <AdMobBanner 
-        style={styles.advertisement}
-        bannerSize="largeBanner"
-        adUnitID={AD_BANNER_01_TESTE} 
+      <TouchableOpacity
+        style={styles.informationButton}
+        onPress={handleInformation}
       >
-      </AdMobBanner>
+        <Text style={styles.informationText}>Informações sobre o IMC</Text>
+      </TouchableOpacity>
+      <AdMobBanner
+        style={styles.advertisement}
+        bannerSize='largeBanner'
+        adUnitID={AD_BANNER_01_TESTE}
+      ></AdMobBanner>
     </SafeAreaView>
   );
 }
@@ -148,7 +151,7 @@ const styles = StyleSheet.create({
   },
   results: {
     fontSize: 30,
-    textAlign: "center",
+    textAlign: 'center',
     color: 'white',
     textShadowColor: 'black',
     textShadowRadius: 10,
