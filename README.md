@@ -37,10 +37,10 @@
 
   <hr/>
 
-  <div align="center"  id="preview">
+  <div align="center" id="preview">
     <h3 align="center">Preview</h3>
-    <img src="./assets/DiaryToolsPreview.gif" alt="GIF showing the app">
-    <img src="./assets/preview1.jpeg" alt="IMG showing the home page">
+    <img width='400px' src="./assets/DiaryToolsPreview.gif" alt="GIF showing the app"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img width='400px' src="./assets/preview1.jpeg" alt="IMG showing the home page">
   </div>
 
   <hr/>
