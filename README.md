@@ -1,28 +1,47 @@
 <header>
-  <div align="center" ><img src="./front-end/src/images/map-marker.svg" alt="logo" /></div>
+  <div align="center" ><img src="./assets/diary-tools-icon.png" alt="logo" /></div>
   <h1 align="center"> Diary Tools </h1>
   <p align="center"> 
     <strong> A React Native application with some tools that you may use in your day. </strong> 
   </p>
   <p align="center"> 
-  <a href="#status">Project status</a> •
+    <a href="#about">About</a> •
     <a href="#preview">Preview</a> •
-    <a href="#tecnologias">Tecnologias</a> •
-    <a href="#instalacao">Getting started</a> •
+    <a href="#status">Project status</a> •
+    <a href="#tecnologias">Technologies</a> •
+    <a href="#instalacao">Getting started</a> 
   </p>
   <hr/>
 </header>
 <main>
+
+  <div id="about">
+    <h3 align="center">💁 About</h3>
+    <p>This application currently has three features:<p>
+    - Weather forecast (it is shown in degrees Celsius)
+    - BMI Calculator (the units of measurement used are meter and kilogram)
+    - Jokenpo game (you can play alone or against a friend)
+    <p>You can download it on Google Play Store <a href="https://play.google.com/store/apps/details?id=com.tiagosansao.lifetools">clicking here!</a></p>
+  </div>
+
+  <hr/>
+
   <div id="status">
     <h3 align="center">Project status</h3>
     <h4 align="center">
       - The project is finalized! 🎇
     </h4>
   </div>
+
+  <hr/>
+
   <div id="preview">
     <h3 align="center">Preview</h3>
-    <img src="./assets/DiaryToolsPreview.gif">
+    <img align="center" src="./assets/DiaryToolsPreview.gif">
   </div>
+
+  <hr/>
+
   <div id="instalacao">
     <h3 align="center">💻 Getting started</h3>
     <p> :warning: It's necessary to have <a href="https://nodejs.org/en/" target="_blank">Node.JS</a> or <a href="https://classic.yarnpkg.com/en/" target="_blank">Yarn</a> installed to be able to proceed from here; </p>
@@ -45,8 +64,11 @@
   </p>
 
   </div>
+
+  <hr/>
+
   <div id="tecnologias">
-    <h3 align="center">Technologies</h3>
+    <h3 align="center">🚀 Technologies</h3>
     <ul>
       <li>React</li>
       <li>React-Native</li>
@@ -55,6 +77,8 @@
       <li><a href="https://openweathermap.org/api">OpenWeatherMap API</a></li>
     </ul>
   </div>
+
+  <hr/>
 
   <p> 🔥 Developed by Tiago Schulz Sansão  👋  <a href="https://www.linkedin.com/in/tiago-schulz-sans%C3%A3o-9283351b7/">Check my LinkedIn</p>
 
