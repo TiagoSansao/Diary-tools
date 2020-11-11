@@ -51,7 +51,7 @@ function HomePage() {
       <AdMobBanner
         style={styles.advertisement}
         bannerSize='largeBanner'
-        adUnitID={AD_BANNER_01_TESTE}
+        adUnitID={HOME_PAGE_BANNER}
       ></AdMobBanner>
 
       <View style={styles.footer}>

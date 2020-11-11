@@ -44,10 +44,10 @@ const AgainstComputerJokenpo = () => {
 
     if (playerChoice1 === 'rock') {
       if (playerChoice2 === 'paper') {
-        win('Player1');
+        win('Player2');
         return;
       } else {
-        win('Player2');
+        win('Player1');
         return;
       }
     }
@@ -80,39 +80,7 @@ const AgainstComputerJokenpo = () => {
           <Text style={styles.gameText}>{gameStatus}</Text>
           <View style={styles.playerOptions}>
             <Text style={styles.computerScore}>
-              Player2 score: {playerScore1}
-            </Text>
-            <TouchableOpacity
-              style={styles.playerOption}
-              onPress={() => setPlayerChoice1('rock')}
-              disabled={playerChoice1 !== null ? true : false}
-            >
-              <FontAwesome5 name='hand-rock' size={50} color='#ecf0f1' />
-              <Text style={styles.label}>Pedra</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.playerOption}
-              onPress={() => setPlayerChoice1('paper')}
-              disabled={playerChoice1 !== null ? true : false}
-            >
-              <FontAwesome5 name='hand-paper' size={50} color='#ecf0f1' />
-              <Text style={styles.label}>Papel</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.playerOption}
-              onPress={() => setPlayerChoice1('scissor')}
-              disabled={playerChoice1 !== null ? true : false}
-            >
-              <FontAwesome5 name='hand-scissors' size={50} color='#ecf0f1' />
-              <Text style={styles.label}>Tesoura</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.rotate0}>
-          <Text style={styles.gameText}>{gameStatus}</Text>
-          <View style={styles.playerOptions}>
-            <Text style={styles.playerScore}>
-              Player1 score: {playerScore2}
+              Player2 score: {playerScore2}
             </Text>
             <TouchableOpacity
               style={styles.playerOption}
@@ -140,11 +108,43 @@ const AgainstComputerJokenpo = () => {
             </TouchableOpacity>
           </View>
         </View>
+        <View style={styles.rotate0}>
+          <Text style={styles.gameText}>{gameStatus}</Text>
+          <View style={styles.playerOptions}>
+            <Text style={styles.playerScore}>
+              Player1 score: {playerScore1}
+            </Text>
+            <TouchableOpacity
+              style={styles.playerOption}
+              onPress={() => setPlayerChoice1('rock')}
+              disabled={playerChoice1 !== null ? true : false}
+            >
+              <FontAwesome5 name='hand-rock' size={50} color='#ecf0f1' />
+              <Text style={styles.label}>Pedra</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.playerOption}
+              onPress={() => setPlayerChoice1('paper')}
+              disabled={playerChoice1 !== null ? true : false}
+            >
+              <FontAwesome5 name='hand-paper' size={50} color='#ecf0f1' />
+              <Text style={styles.label}>Papel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.playerOption}
+              onPress={() => setPlayerChoice1('scissor')}
+              disabled={playerChoice1 !== null ? true : false}
+            >
+              <FontAwesome5 name='hand-scissors' size={50} color='#ecf0f1' />
+              <Text style={styles.label}>Tesoura</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
       <AdMobBanner
         style={styles.advertisement}
         bannerSize='largeBanner'
-        adUnitID={AD_BANNER_01_TESTE}
+        adUnitID={JOKENPO_AGAINST_FRIEND_BANNER}
       ></AdMobBanner>
     </View>
   );

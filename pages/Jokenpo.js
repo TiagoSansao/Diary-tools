@@ -28,12 +28,12 @@ const Jokenpo = () => {
           <AdMobBanner
             style={styles.advertisement}
             bannerSize='mediumRectangle'
-            adUnitID={AD_BANNER_01_TESTE}
+            adUnitID={CHOOSE_MODE_BIG_BANNER}
           ></AdMobBanner>
           <AdMobBanner
             style={styles.advertisement}
             bannerSize='largeBanner'
-            adUnitID={AD_BANNER_01_TESTE}
+            adUnitID={CHOOSE_MODE_SMALL_BANNER}
           ></AdMobBanner>
         </View>
       </View>

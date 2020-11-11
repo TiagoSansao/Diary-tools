@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Ferramentas Diárias",
-    "slug": "Ferramentas Diárias",
-    "version": "2.1.0",
+    "slug": "ferramentas_diarias",
+    "version": "2.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -27,7 +27,8 @@
       "config": {
         "googleMobileAdsAppId": ""
       },
-      "package": "com.tiagosansao.lifetools"
+      "package": "com.tiagosansao.lifetools",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"

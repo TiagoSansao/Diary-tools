@@ -92,7 +92,7 @@ export default function BMICalculator() {
       <AdMobBanner
         style={styles.advertisement}
         bannerSize='largeBanner'
-        adUnitID={AD_BANNER_01_TESTE}
+        adUnitID={IMC_BANNER}
       ></AdMobBanner>
     </SafeAreaView>
   );

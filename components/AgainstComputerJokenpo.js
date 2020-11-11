@@ -56,30 +56,30 @@ const AgainstComputerJokenpo = () => {
 
     if (playerChoice === 'rock') {
       if (computerChoice === 'paper') {
-        win();
+        lose();
         return;
       } else {
-        lose();
+        win();
         return;
       }
     }
 
     if (playerChoice === 'paper') {
       if (computerChoice === 'scissor') {
-        win();
+        lose();
         return;
       } else {
-        lose();
+        win();
         return;
       }
     }
 
     if (playerChoice === 'scissor') {
       if (computerChoice === 'rock') {
-        win();
+        lose();
         return;
       } else {
-        lose();
+        win();
         return;
       }
     }
@@ -158,7 +158,7 @@ const AgainstComputerJokenpo = () => {
       <AdMobBanner
         style={styles.advertisement}
         bannerSize='largeBanner'
-        adUnitID={AD_BANNER_01_TESTE}
+        adUnitID={JOKENPO_AGAINST_COMPUTER_BANNER}
       ></AdMobBanner>
     </View>
   );
