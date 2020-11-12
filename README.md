@@ -74,9 +74,9 @@
     <h3 align="center">🚀 Technologies</h3>
     <ul>
       <li><a href="https://reactjs.org/">React</a></li>
-      <li></a href="https://reactnative.dev/">React Native</a></li>
+      <li><a href="https://reactnative.dev/">React Native</a></li>
       <li><a href="https://www.npmjs.com/package/react-native-dotenv">React Native Dotenv</a></li>
-      <li><a href="https://docs.expo.io/">Expo<</a>/li>
+      <li><a href="https://docs.expo.io/">Expo</a></li>
       <li><a href="https://openweathermap.org/api">OpenWeatherMap API</a></li>
     </ul>
   </div>
